@@ -7,15 +7,29 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7F3EEAFB2A8BA3D30074994C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7F3EEAFD2A8BA3D30074994C /* InfoPlist.strings */; };
 		7FA289BB2A7CECC800BA3E1E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA289BA2A7CECC800BA3E1E /* AppDelegate.swift */; };
 		7FA289BD2A7CECC800BA3E1E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA289BC2A7CECC800BA3E1E /* SceneDelegate.swift */; };
 		7FA289BF2A7CECC800BA3E1E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA289BE2A7CECC800BA3E1E /* ViewController.swift */; };
 		7FA289C22A7CECC800BA3E1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA289C02A7CECC800BA3E1E /* Main.storyboard */; };
 		7FA289C42A7CECCA00BA3E1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7FA289C32A7CECCA00BA3E1E /* Assets.xcassets */; };
 		7FA289C72A7CECCA00BA3E1E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7FA289C52A7CECCA00BA3E1E /* LaunchScreen.storyboard */; };
+		7FA289CF2A7CECE400BA3E1E /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FA289CE2A7CECE400BA3E1E /* GameView.swift */; };
+		7FACC9462A84D48A00E19A11 /* ControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACC9452A84D48A00E19A11 /* ControlView.swift */; };
+		7FACC9492A84EDA100E19A11 /* UIView+Ex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACC9482A84EDA100E19A11 /* UIView+Ex.swift */; };
+		7FACC94B2A85096C00E19A11 /* GameView+delegata.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACC94A2A85096C00E19A11 /* GameView+delegata.swift */; };
+		7FACC9502A8A517100E19A11 /* broken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FACC94F2A8A517100E19A11 /* broken.mp3 */; };
+		7FACC9532A8A521D00E19A11 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACC9522A8A521D00E19A11 /* SoundEffect.swift */; };
+		7FACC9562A8B973700E19A11 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FACC9582A8B973700E19A11 /* Localizable.strings */; };
+		DA942BD74E2C53C4858626BD /* Pods_StarFall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D879D52887F9327339AE113 /* Pods_StarFall.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		18CC787F6A6D225BDD11500A /* Pods-StarFall.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarFall.debug.xcconfig"; path = "Target Support Files/Pods-StarFall/Pods-StarFall.debug.xcconfig"; sourceTree = "<group>"; };
+		1D879D52887F9327339AE113 /* Pods_StarFall.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_StarFall.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F3EEAFC2A8BA3D30074994C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		7F3EEAFE2A8BA3D70074994C /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		7F3EEAFF2A8C6B940074994C /* StarFall.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StarFall.entitlements; sourceTree = "<group>"; };
 		7FA289B72A7CECC800BA3E1E /* StarFall.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StarFall.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7FA289BA2A7CECC800BA3E1E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7FA289BC2A7CECC800BA3E1E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +38,17 @@
 		7FA289C32A7CECCA00BA3E1E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7FA289C62A7CECCA00BA3E1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7FA289C82A7CECCA00BA3E1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7FA289CE2A7CECE400BA3E1E /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		7FACC9452A84D48A00E19A11 /* ControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControlView.swift; sourceTree = "<group>"; };
+		7FACC9482A84EDA100E19A11 /* UIView+Ex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ex.swift"; sourceTree = "<group>"; };
+		7FACC94A2A85096C00E19A11 /* GameView+delegata.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameView+delegata.swift"; sourceTree = "<group>"; };
+		7FACC94F2A8A517100E19A11 /* broken.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = broken.mp3; sourceTree = "<group>"; };
+		7FACC9522A8A521D00E19A11 /* SoundEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundEffect.swift; sourceTree = "<group>"; };
+		7FACC9572A8B973700E19A11 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7FACC9592A8B975F00E19A11 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		7FACC95A2A8B975F00E19A11 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		7FACC95B2A8B975F00E19A11 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		AA873AC6B5FF63D1421778DC /* Pods-StarFall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarFall.release.xcconfig"; path = "Target Support Files/Pods-StarFall/Pods-StarFall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +56,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA942BD74E2C53C4858626BD /* Pods_StarFall.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7302F45B5F15BA22AEE3C4B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1D879D52887F9327339AE113 /* Pods_StarFall.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7FA289AE2A7CECC800BA3E1E = {
 			isa = PBXGroup;
 			children = (
 				7FA289B92A7CECC800BA3E1E /* StarFall */,
 				7FA289B82A7CECC800BA3E1E /* Products */,
+				A81A6F6FCFBEE68CDF25559C /* Pods */,
+				7302F45B5F15BA22AEE3C4B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +92,57 @@
 		7FA289B92A7CECC800BA3E1E /* StarFall */ = {
 			isa = PBXGroup;
 			children = (
+				7F3EEAFF2A8C6B940074994C /* StarFall.entitlements */,
+				7FACC9512A8A51F200E19A11 /* Utils */,
+				7FACC94E2A8A516600E19A11 /* resources */,
+				7FACC9472A84ED8C00E19A11 /* extension */,
 				7FA289BA2A7CECC800BA3E1E /* AppDelegate.swift */,
 				7FA289BC2A7CECC800BA3E1E /* SceneDelegate.swift */,
 				7FA289BE2A7CECC800BA3E1E /* ViewController.swift */,
+				7FA289CE2A7CECE400BA3E1E /* GameView.swift */,
+				7FACC94A2A85096C00E19A11 /* GameView+delegata.swift */,
+				7FACC9452A84D48A00E19A11 /* ControlView.swift */,
 				7FA289C02A7CECC800BA3E1E /* Main.storyboard */,
+				7F3EEAFD2A8BA3D30074994C /* InfoPlist.strings */,
+				7FACC9582A8B973700E19A11 /* Localizable.strings */,
 				7FA289C32A7CECCA00BA3E1E /* Assets.xcassets */,
 				7FA289C52A7CECCA00BA3E1E /* LaunchScreen.storyboard */,
 				7FA289C82A7CECCA00BA3E1E /* Info.plist */,
 			);
 			path = StarFall;
+			sourceTree = "<group>";
+		};
+		7FACC9472A84ED8C00E19A11 /* extension */ = {
+			isa = PBXGroup;
+			children = (
+				7FACC9482A84EDA100E19A11 /* UIView+Ex.swift */,
+			);
+			path = extension;
+			sourceTree = "<group>";
+		};
+		7FACC94E2A8A516600E19A11 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				7FACC94F2A8A517100E19A11 /* broken.mp3 */,
+			);
+			path = resources;
+			sourceTree = "<group>";
+		};
+		7FACC9512A8A51F200E19A11 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				7FACC9522A8A521D00E19A11 /* SoundEffect.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		A81A6F6FCFBEE68CDF25559C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				18CC787F6A6D225BDD11500A /* Pods-StarFall.debug.xcconfig */,
+				AA873AC6B5FF63D1421778DC /* Pods-StarFall.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +152,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7FA289CB2A7CECCA00BA3E1E /* Build configuration list for PBXNativeTarget "StarFall" */;
 			buildPhases = (
+				D0193BBB3E0D36106B7584C3 /* [CP] Check Pods Manifest.lock */,
 				7FA289B32A7CECC800BA3E1E /* Sources */,
 				7FA289B42A7CECC800BA3E1E /* Frameworks */,
 				7FA289B52A7CECC800BA3E1E /* Resources */,
+				5FA8FEB474BC411525C71047 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -109,6 +189,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 7FA289AE2A7CECC800BA3E1E;
 			productRefGroup = 7FA289B82A7CECC800BA3E1E /* Products */;
@@ -125,13 +206,58 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7FACC9562A8B973700E19A11 /* Localizable.strings in Resources */,
+				7F3EEAFB2A8BA3D30074994C /* InfoPlist.strings in Resources */,
 				7FA289C72A7CECCA00BA3E1E /* LaunchScreen.storyboard in Resources */,
+				7FACC9502A8A517100E19A11 /* broken.mp3 in Resources */,
 				7FA289C42A7CECCA00BA3E1E /* Assets.xcassets in Resources */,
 				7FA289C22A7CECC800BA3E1E /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		5FA8FEB474BC411525C71047 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarFall/Pods-StarFall-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-StarFall/Pods-StarFall-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-StarFall/Pods-StarFall-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D0193BBB3E0D36106B7584C3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-StarFall-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7FA289B32A7CECC800BA3E1E /* Sources */ = {
@@ -140,17 +266,32 @@
 			files = (
 				7FA289BF2A7CECC800BA3E1E /* ViewController.swift in Sources */,
 				7FA289BB2A7CECC800BA3E1E /* AppDelegate.swift in Sources */,
+				7FACC9532A8A521D00E19A11 /* SoundEffect.swift in Sources */,
+				7FACC94B2A85096C00E19A11 /* GameView+delegata.swift in Sources */,
+				7FA289CF2A7CECE400BA3E1E /* GameView.swift in Sources */,
+				7FACC9462A84D48A00E19A11 /* ControlView.swift in Sources */,
 				7FA289BD2A7CECC800BA3E1E /* SceneDelegate.swift in Sources */,
+				7FACC9492A84EDA100E19A11 /* UIView+Ex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		7F3EEAFD2A8BA3D30074994C /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7F3EEAFC2A8BA3D30074994C /* en */,
+				7F3EEAFE2A8BA3D70074994C /* zh-Hans */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		7FA289C02A7CECC800BA3E1E /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				7FA289C12A7CECC800BA3E1E /* Base */,
+				7FACC9592A8B975F00E19A11 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -159,8 +300,18 @@
 			isa = PBXVariantGroup;
 			children = (
 				7FA289C62A7CECCA00BA3E1E /* Base */,
+				7FACC95A2A8B975F00E19A11 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		7FACC9582A8B973700E19A11 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7FACC9572A8B973700E19A11 /* en */,
+				7FACC95B2A8B975F00E19A11 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -170,6 +321,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -230,6 +382,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -282,26 +435,32 @@
 		};
 		7FA289CC2A7CECCA00BA3E1E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 18CC787F6A6D225BDD11500A /* Pods-StarFall.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StarFall/StarFall.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = F33KAFG7AG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarFall/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wwj.StarFall;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wj.bounce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -310,26 +469,32 @@
 		};
 		7FA289CD2A7CECCA00BA3E1E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA873AC6B5FF63D1421778DC /* Pods-StarFall.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = StarFall/StarFall.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = F33KAFG7AG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarFall/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = wwj.StarFall;
+				PRODUCT_BUNDLE_IDENTIFIER = com.wj.bounce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";

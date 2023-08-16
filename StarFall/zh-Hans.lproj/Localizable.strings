@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  StarFall
+
+  Created by wangwenjian on 2023/8/15.
+  
+*/
+
+"Start" = "开始";
+"Score" = "得分";
+"Best" = "最佳";
+"ShareScoreFormat" = "我在彩球快跑中获得了%ld分, 欢迎来挑战";

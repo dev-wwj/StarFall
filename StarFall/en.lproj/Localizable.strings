@@ -1,0 +1,14 @@
+/* 
+  Localizable.strings
+  StarFall
+
+  Created by wangwenjian on 2023/8/15.
+  
+*/
+
+"start" = "start";
+"Score" = "Score";
+"Best" = "Best";
+"ShareScoreFormat" = "I scored %ld points in [Bounce Running] and welcome you to challenge me.";
+
+
