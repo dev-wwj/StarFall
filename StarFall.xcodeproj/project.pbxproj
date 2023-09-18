@@ -21,6 +21,7 @@
 		7FACC9502A8A517100E19A11 /* broken.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7FACC94F2A8A517100E19A11 /* broken.mp3 */; };
 		7FACC9532A8A521D00E19A11 /* SoundEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FACC9522A8A521D00E19A11 /* SoundEffect.swift */; };
 		7FACC9562A8B973700E19A11 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7FACC9582A8B973700E19A11 /* Localizable.strings */; };
+		7FEC22C92A8E2202005AF27B /* BubbleLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7FEC22C82A8E2202005AF27B /* BubbleLabel.swift */; };
 		DA942BD74E2C53C4858626BD /* Pods_StarFall.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D879D52887F9327339AE113 /* Pods_StarFall.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +49,7 @@
 		7FACC9592A8B975F00E19A11 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		7FACC95A2A8B975F00E19A11 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		7FACC95B2A8B975F00E19A11 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
+		7FEC22C82A8E2202005AF27B /* BubbleLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubbleLabel.swift; sourceTree = "<group>"; };
 		AA873AC6B5FF63D1421778DC /* Pods-StarFall.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-StarFall.release.xcconfig"; path = "Target Support Files/Pods-StarFall/Pods-StarFall.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -92,6 +94,7 @@
 		7FA289B92A7CECC800BA3E1E /* StarFall */ = {
 			isa = PBXGroup;
 			children = (
+				7FEC22C72A8E21EA005AF27B /* views */,
 				7F3EEAFF2A8C6B940074994C /* StarFall.entitlements */,
 				7FACC9512A8A51F200E19A11 /* Utils */,
 				7FACC94E2A8A516600E19A11 /* resources */,
@@ -134,6 +137,14 @@
 				7FACC9522A8A521D00E19A11 /* SoundEffect.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		7FEC22C72A8E21EA005AF27B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				7FEC22C82A8E2202005AF27B /* BubbleLabel.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		A81A6F6FCFBEE68CDF25559C /* Pods */ = {
@@ -272,6 +283,7 @@
 				7FACC9462A84D48A00E19A11 /* ControlView.swift in Sources */,
 				7FA289BD2A7CECC800BA3E1E /* SceneDelegate.swift in Sources */,
 				7FACC9492A84EDA100E19A11 /* UIView+Ex.swift in Sources */,
+				7FEC22C92A8E2202005AF27B /* BubbleLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,7 +454,7 @@
 				CODE_SIGN_ENTITLEMENTS = StarFall/StarFall.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F33KAFG7AG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarFall/Info.plist;
@@ -457,7 +469,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wj.bounce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -476,7 +488,7 @@
 				CODE_SIGN_ENTITLEMENTS = StarFall/StarFall.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = F33KAFG7AG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StarFall/Info.plist;
@@ -491,7 +503,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.wj.bounce;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

@@ -26,6 +26,6 @@ extension GameView: ControlPlayDelegate {
     
     func fail() {
         displayLink.isPaused = true
-        delegate?.fail(self)
+        delegate?.gameOver(self)
     }
 }

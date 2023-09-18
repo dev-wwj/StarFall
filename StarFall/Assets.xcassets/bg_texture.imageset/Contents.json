@@ -1,0 +1,35 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "bg_texture@2x.png",
+      "idiom" : "universal",
+      "resizing" : {
+        "cap-insets" : {
+          "bottom" : 0,
+          "left" : 0,
+          "right" : 0,
+          "top" : 0
+        },
+        "center" : {
+          "height" : 500,
+          "mode" : "tile",
+          "width" : 500
+        },
+        "mode" : "9-part"
+      },
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

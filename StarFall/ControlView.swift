@@ -14,7 +14,7 @@ enum GameState {
     case ready
     case playing
     case pause
-    case fail
+    case gameOver
 }
 
 protocol ControlPlayDelegate: NSObjectProtocol {
@@ -38,6 +38,8 @@ class ControlView: UIView {
     weak var delegate: ControlPlayDelegate?
     weak var resultDelegate: ControlResultDelegate?
     
+    var state: GameState = .ready
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .black.withAlphaComponent(0.6)
@@ -49,8 +51,8 @@ class ControlView: UIView {
     
     lazy var startBtn: UIButton = {
         let button = UIButton(type: .system)
-        button.tintColor = .lightGray
-        button.backgroundColor = .white
+        button.tintColor = .white
+        button.backgroundColor = UIColor(patternImage: "plywood".image)
         button.layer.cornerRadius = 10
         addSubview(button)
         button.setImage("outline_play_circle_black_36pt_".image, for: .normal)
@@ -58,7 +60,7 @@ class ControlView: UIView {
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 5)
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)
         button.imageView?.contentMode = .scaleToFill
-        button.titleLabel?.font = 20.fontHeavy
+        button.titleLabel?.font = 22.fontHeavy
         button.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.size.equalTo(CGSize(width: 200, height: 123))
@@ -81,12 +83,14 @@ class ControlView: UIView {
     }()
     
     lazy var soundOnOff: UIButton = {
-        let button = UIButton(type: .custom)
-        button.setImage("round_notifications_active_black_36pt_".image, for: .normal)
-        button.setImage("round_notifications_off_black_36pt_".image, for: .selected)
-        button.isSelected = !UserDefaults.standard.bool(forKey: "SoundOnOff")
-        button.tintColor = .lightGray
+        let button = UIButton(type: .system)
+        if UserDefaults.standard.bool(forKey: "SoundOnOff") == true {
+            button.setImage("round_notifications_off_black_36pt_".image, for: .normal)
+        } else {
+            button.setImage("round_notifications_active_black_36pt_".image, for: .normal)
+        }
         button.addTarget(self, action: #selector(soundSwitch), for: .touchUpInside)
+        button.tintColor = .white
         return button
     }()
     
@@ -102,7 +106,8 @@ class ControlView: UIView {
     
     lazy var scoreL: UILabel =  {
         let label = UILabel()
-        label.styleLargeNum()
+        label.font = 20.fontBold
+        label.textColor = .white
         label.text = "0"
         addSubview(label)
         label.transform = CGAffineTransformMakeTranslation(-100, 0)
@@ -113,9 +118,9 @@ class ControlView: UIView {
         return label
     }()
     
-    lazy var resultV: ResultView = {
+    lazy var resultVL: (ResultView, BubbleLabel) = {
         let view = ResultView()
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(patternImage: "plywood".image)
         view.layer.cornerRadius = 10
         addSubview(view)
         view.snp.makeConstraints { make in
@@ -126,8 +131,22 @@ class ControlView: UIView {
         view.gameCenter.addTarget(self, action: #selector(gameCenter), for: .touchUpInside)
         view.share.addTarget(self, action: #selector(share), for: .touchUpInside)
         view.transform = CGAffineTransformMakeTranslation(0, self.bounds.height)
-        return view
+        
+        let label = BubbleLabel()
+        label.text = "Shake to restart".local
+        label.textColor = .white
+        label.backgroundColor = UIColor(patternImage: "plywood".image)
+        addSubview(label)
+        label.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.bottom.equalTo(view.snp.top)
+        }
+        label.transform = CGAffineTransformMakeTranslation(0, self.bounds.height)
+        return (view, label)
     }()
+    
+
+    
     
     override func safeAreaInsetsDidChange() {
         super.safeAreaInsetsDidChange()
@@ -137,6 +156,7 @@ class ControlView: UIView {
     }
     
     @objc func play() {
+        state = .playing
         UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.3, initialSpringVelocity: 0.8) {
             self.backgroundColor = .black.withAlphaComponent(0.0)
             self.rightBarStack.transform = .identity
@@ -147,6 +167,7 @@ class ControlView: UIView {
     }
     
     @objc func pause() {
+        state = .pause
         UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3) {
             self.backgroundColor = .black.withAlphaComponent(0.6)
             self.rightBarStack.transform = CGAffineTransformMakeTranslation(150, 0)
@@ -156,27 +177,41 @@ class ControlView: UIView {
     }
     
     @objc func restart() {
+        state = .playing
         UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3) {
             self.backgroundColor = .black.withAlphaComponent(0.0)
-            self.resultV.transform = CGAffineTransformMakeTranslation(0, self.bounds.height)
+            self.resultVL.0.transform = CGAffineTransformMakeTranslation(0, self.bounds.height)
+            self.resultVL.1.transform = CGAffineTransformMakeTranslation(0, self.bounds.height)
             self.rightBarStack.transform = .identity
             self.scoreL.transform = .identity
         }
         resultDelegate?.restart()
     }
     
+    
     @objc func gameCenter(){
         resultDelegate?.gameCenter()
     }
     
     @objc func share(){
-        let string = String(format: "ShareScoreFormat".local, self.resultV.score)
+        let string = String(format: "ShareScoreFormat".local, self.resultVL.0.score)
         resultDelegate?.share(string)
     }
     
     @objc func soundSwitch() {
-        soundOnOff.isSelected = !soundOnOff.isSelected
-        UserDefaults.standard.set(!soundOnOff.isSelected, forKey: "SoundOnOff")
+        let onOff = UserDefaults.standard.bool(forKey: "SoundOnOff") ?? false
+        UserDefaults.standard.set(!onOff, forKey: "SoundOnOff")
+        if !onOff == true {
+            soundOnOff.setImage("round_notifications_off_black_36pt_".image, for: .normal)
+        } else {
+            soundOnOff.setImage("round_notifications_active_black_36pt_".image, for: .normal)
+        }
+    }
+    
+    func shakeToReStart(){
+        if state == .gameOver {
+            restart()
+        }
     }
     
 }
@@ -186,14 +221,16 @@ extension ControlView: GameDelegate {
         scoreL.text = "\(view.deathScore + view.liveScore)"
     }
     
-    func fail(_ view: GameView) {
+    func gameOver(_ view: GameView) {
+        state = .gameOver
         let score = view.deathScore
-        self.resultV.score = score
-        self.resultV.best = score
-
+        self.resultVL.0.score = score
+        self.resultVL.0.best = score
+        self.resultVL.0.Animate_Shake()
         UIView.animate(withDuration: 0.25, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3) {
             self.backgroundColor = .black.withAlphaComponent(0.6)
-            self.resultV.transform = .identity
+            self.resultVL.0.transform = .identity
+            self.resultVL.1.transform = .identity
             self.rightBarStack.transform = CGAffineTransformMakeTranslation(150, 0)
             self.scoreL.transform = CGAffineTransformMakeTranslation(-100, 0)
         }
@@ -210,7 +247,7 @@ extension ControlView: GameDelegate {
                 if _score < score {
                     reportNew(Int64(score))
                 }else {
-                    self?.resultV.best = Int(_score)
+                    self?.resultVL.0.best = Int(_score)
                 }
             } else {
                 reportNew(Int64(score))
@@ -243,10 +280,10 @@ class ResultView: UIView  {
     }
     
     lazy var stack: UIStackView = {
-        let stack = UIStackView(arrangedSubviews: [scoreL, bestL , restart, space, socialStack])
+        let stack = UIStackView(arrangedSubviews: [scoreL, bestL , space(10), restart, space(10), socialStack])
         stack.axis = .vertical
         stack.alignment = .center
-        stack.spacing = 20
+        stack.spacing = 10
         addSubview(stack)
         stack.snp.makeConstraints { make in
             make.center.equalToSuperview()
@@ -259,7 +296,7 @@ class ResultView: UIView  {
             let attStr = NSMutableAttributedString(string: "\("Score".local):  ")
             let scoreStr = NSAttributedString(string: "\(score)",
                                               attributes: [.font: 32.fontBold,
-                                                .foregroundColor: UIColor.systemPink,
+                                                           .foregroundColor: UIColor.systemRed,
                                                            .baselineOffset: -4])
             attStr.append(scoreStr)
             scoreL.attributedText = attStr
@@ -269,7 +306,7 @@ class ResultView: UIView  {
     var best: Int = 0 {
         didSet {
             let attStr = NSMutableAttributedString(string: "\("Best".local):  ")
-            let scoreStr = NSAttributedString(string: "\(best)", attributes: [.font: 32.fontBold, .foregroundColor: UIColor.systemPurple, .baselineOffset: -4])
+            let scoreStr = NSAttributedString(string: "\(best)", attributes: [.font: 32.fontBold, .foregroundColor: UIColor.systemYellow, .baselineOffset: -4])
             attStr.append(scoreStr)
             bestL.attributedText = attStr
         }
@@ -279,7 +316,6 @@ class ResultView: UIView  {
         let label = UILabel()
         label.textAlignment = NSTextAlignment.center
         label.text = "0"
-        label.numberOfLines = 2
         label.styleLargeNum()
         return label
     }()
@@ -288,15 +324,14 @@ class ResultView: UIView  {
         let label = UILabel()
         label.textAlignment = NSTextAlignment.center
         label.text = "0"
-        label.numberOfLines = 2
         label.styleLargeNum()
         return label
     }()
     
     lazy var restart: UIButton = {
         let button = UIButton(type: .system)
-        button.setImage("outline_replay_circle_filled_black_48pt_".image, for: .normal)
-        button.tintColor = .green
+        button.setImage("baseline_replay_black_48pt_".image, for: .normal)
+        button.tintColor = .magenta
         return button
     }()
     
@@ -313,13 +348,13 @@ class ResultView: UIView  {
         return button
     }()
     
-    lazy var space: UIView = {
+    func space(_ hight: CGFloat) -> UIView {
         let view = UIView()
         view.snp.makeConstraints { make in
-            make.height.equalTo(20)
+            make.height.equalTo(hight)
         }
         return view
-    }()
+    }
     
     lazy var socialStack:UIStackView = {
         let stack = UIStackView(arrangedSubviews: [gameCenter, share])
@@ -328,3 +363,5 @@ class ResultView: UIView  {
     }()
     
 }
+
+

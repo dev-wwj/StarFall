@@ -52,8 +52,11 @@ extension UILabel {
     }
     
     func styleLargeNum() {
-        style(18.fontBold, textColor: 0x222222.rgbColor)
+        style(18.fontBold, textColor: .white)
     }
+    
+    
+    
 }
 
 extension UIColor {
@@ -75,5 +78,33 @@ extension UIColor {
         
         // 创建新的颜色对象并返回
         return UIColor(red: newRed, green: newGreen, blue: newBlue, alpha: 1.0)
+    }
+}
+
+extension UIView {
+    
+    enum Animation: String {
+        case shake = "shake"
+    }
+    
+    func animation(_ ani: Animation) {
+        switch ani {
+        case .shake:
+            Animate_Shake()
+        }
+    }
+    
+    func remove(_ ani: Animation) {
+        self.layer.removeAnimation(forKey: ani.rawValue)
+    }
+    
+    func Animate_Shake() {
+        let shakeAnimation = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+        shakeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
+        shakeAnimation.duration = 0.25
+        shakeAnimation.values = [0.0, Double.pi/64.0, 0.0, -Double.pi/64.0, 0.0]
+        shakeAnimation.keyTimes = [0.0, 0.25, 0.5, 0.75, 1.0]
+        shakeAnimation.repeatCount = Float.greatestFiniteMagnitude
+        self.layer.add(shakeAnimation, forKey: Animation.shake.rawValue)
     }
 }

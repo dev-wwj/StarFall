@@ -15,7 +15,7 @@ class ViewController: UIViewController {
 //        game = GameView(frame: view.bounds.inset(by: view.safeAreaInsets))
 //        view.addSubview(game)
 //        game.delegate = control
-        
+        _ = bg
         addBottomFire()
         addTopFire()
         _ = control
@@ -23,6 +23,15 @@ class ViewController: UIViewController {
         GKLocalPlayer.local.authenticateHandler = { vc, err in
         }
     }
+    
+    lazy var bg: UIImageView = {
+        let imageView = UIImageView(image: "bg_texture".image)
+        view.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        return imageView
+    }()
         
     override func viewSafeAreaInsetsDidChange() {
         super.viewSafeAreaInsetsDidChange()
@@ -149,4 +158,12 @@ extension ViewController: GKGameCenterControllerDelegate{
         gameCenterViewController.dismiss(animated: true)
     }
     
+}
+
+extension ViewController {
+    override func motionBegan(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            control.shakeToReStart()
+        }
+    }
 }

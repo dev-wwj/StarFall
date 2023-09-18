@@ -23,7 +23,7 @@ struct AudioEffect {
     }
     
     static func play(_ name: SoundName, _extension: String = "mp3") {
-        if var isOn = UserDefaults.standard.bool(forKey: "SoundOnOff") as? Bool, isOn == false {
+        if var isOff = UserDefaults.standard.bool(forKey: "SoundOnOff") as? Bool, isOff == true {
             return
         }
         guard let sound = AudioEffect.sounds.first(where: { s in

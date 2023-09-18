@@ -12,7 +12,7 @@ import CoreMotion
 protocol GameDelegate: NSObjectProtocol {
     func running(_ view: GameView)
     
-    func fail(_ view: GameView)
+    func gameOver(_ view: GameView)
 }
 
 
@@ -36,7 +36,7 @@ class GameView: UIView {
         _ = scrollView
         
     }
-    
+
     lazy var scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.isUserInteractionEnabled = false
@@ -186,9 +186,7 @@ class GameView: UIView {
             let view = Rectangle()
             view.layer.cornerRadius = 4
             if [0, 1, 2].contains(arc4random_uniform(6)){
-                view.backgroundColor = colors[Int(arc4random_uniform(5))]
-            } else{
-                view.isAnchored = false
+                view.isAnchored = true
             }
             return view
         }
@@ -200,7 +198,6 @@ class GameView: UIView {
             // 添加一个出口
             let idx = Int(arc4random_uniform(6))
             let view = items[idx]
-            view.backgroundColor = .clear
             view.isAnchored = false
         }
         
@@ -366,22 +363,37 @@ class Ball: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
     
-    //    lazy var ballImage : UIImageView = {
-    //        let imageView = UIImageView(image: "outline_sports_volleyball_black_48pt_".image)
-    //        addSubview(imageView)
-    //        imageView.tintColor = .red
-    //        imageView.snp.makeConstraints { make in
-    //            make.edges.equalToSuperview()
-    //        }
-    //        return imageView
-    //    }()
-    
     override var collisionBoundsType: UIDynamicItemCollisionBoundsType {
-        return .ellipse
+        return .path
+    }
+    
+    override var collisionBoundingPath: UIBezierPath {
+        return UIBezierPath(arcCenter: CGPoint.zero, radius: 20, startAngle: 0, endAngle: .pi * 2, clockwise: true)
     }
 }
 
 class Rectangle: UIView {
-    var isAnchored: Bool = true
+    
+    static var texture: UIImage = {
+        return "ladder".image
+    }()
+    
+    var isAnchored: Bool = false {
+        didSet {
+            if isAnchored == true {
+                self.backgroundColor = UIColor(patternImage: Self.texture)
+            } else {
+                self.backgroundColor = .clear
+            }
+        }
+    }
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
 
